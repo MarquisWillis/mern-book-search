@@ -12,10 +12,9 @@ const SavedBooks = () => {
   const { email: userParam } = useParams();
 
   const { data, loading } = useQuery(GET_ME, {
-    variables: { token: userParam }
+    variables: userParam
   });
   const [deleteBook, {error}] = useMutation(DELETE_BOOK);
-
 
   const books = data?.me.savedBooks || {};
 
